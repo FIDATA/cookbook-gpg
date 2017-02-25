@@ -53,8 +53,8 @@ module BswTech
       def get_gpg_cmd(public_keyring, secret_keyring)
         keyring_params = get_keyring_params public_keyring, secret_keyring
         trust_suppress = @suppress_trustdb_check ? ' --no-auto-check-trustdb' : ''
-        # When not using the default keyring, gpg2 will complain about not being able to find a public key that we trust
-        "gpg2 --batch --no-tty#{trust_suppress}#{keyring_params}".strip
+        # When not using the default keyring, gpg will complain about not being able to find a public key that we trust
+        "gpg --batch --no-tty#{trust_suppress}#{keyring_params}".strip
       end
 
       def get_keyring_params(public_keyring, secret_keyring)
